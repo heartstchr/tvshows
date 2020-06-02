@@ -7,7 +7,7 @@
         :key="index"
         class="col col-md-3"
       >
-        <card :element="tvshow"></card>
+        <card :element="tvshow" :showDetails="details"></card>
       </div>
     </div>
   </q-page>
@@ -21,6 +21,11 @@ import { mapGetters } from "vuex";
 import Card from "@/components/card.comp.vue";
 export default {
   name: "SingleGenres",
+  data() {
+    return {
+      details: true
+    };
+  },
   computed: {
     ...mapGetters(["genresTvShows"])
   },

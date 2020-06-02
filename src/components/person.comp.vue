@@ -19,7 +19,7 @@
                 <q-tooltip>{{element.rating.average}}</q-tooltip>
               </template>
             </q-rating>
-            <span class="text-caption text-grey q-ml-sm">{{element.language}}</span>
+            <span class="text-caption text-grey q-ml-sm"> <q-icon name="language" />{{element.language}}</span>
           </div>
           <div class="text-h6">
             <q-icon name="theaters" />

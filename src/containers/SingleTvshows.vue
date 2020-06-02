@@ -1,23 +1,44 @@
 <template>
-  <q-page>
+  <div>
     <div class="row">
-      <div class="col-md-6 ">
-        <q-parallax :height="400">
-          <template v-slot:media class="fit">
-            <img :src="tvshowsDetails.image.original" />
-          </template>
-        </q-parallax>
+      <div class="col-md-6">
+        <div class="q-pa-md q-gutter-md">
+          <div class="row justify-between">
+            <q-parallax :height="500">
+              <template v-slot:media class="fit">
+                <img :src="tvshowsDetails.image.original" />
+              </template>
+              <div class="text-h5 absolute-bottom text-center">
+                <q-btn
+                  align="around"
+                  rounded
+                  class="btn-fixed-width"
+                  size="xl"
+                  color="primary"
+                  label="Watch Now"
+                  icon="play_arrow"
+                  type="a"
+                  :href="tvshowsDetails.url"
+                  target="_blank"
+                />
+              </div>
+            </q-parallax>
+          </div>
+        </div>
       </div>
       <div class="col-md-6 q-pa-md">
-        <div class="fit row wrap justify-center items-center content-center">
-          <h5 class="text-white text-title">{{tvshowsDetails.name}}</h5>
-          <div class="text-subtitle2">{{tvshowsDetails.language}}</div>
-          <div class="text-subtitle2 row no-wrap items-center">
+        <div class="text-h2">{{tvshowsDetails.name}}</div>
+        <div class="text-subtitle2">
+          <q-icon name="language" />
+          {{tvshowsDetails.language}}
+        </div>
+        <div class="fit">
+          <div class="text-subtitle2">
             <q-rating
               size="18px"
               v-model="tvshowsDetails.rating.average"
               :max="10"
-              color="primary"
+              color="orange"
               readonly
             />
             <span class="text-caption text-grey q-ml-sm">{{tvshowsDetails.rating.average}}</span>
@@ -67,7 +88,7 @@
         </q-splitter>
       </div>
     </div>
-  </q-page>
+  </div>
 </template>
 
 <style>

@@ -5,34 +5,53 @@
         v-for="(ele,index) in elements"
         :key="index"
         :name="index"
-        :img-src="ele.image.medium"
+        :img-src="ele.image.original"
       >
-        <div class="absolute-bottom custom-caption q-pa-sm">
-          <div class="items-center">
-            <q-rating
-              size="2em"
-              v-model="ele.rating.average"
-              :max="10"
-              color="orange"
-              icon="star_border"
-              icon-selected="star"
-              icon-half="star_half"
-              no-dimming
-              readonly
-            ></q-rating>
-            {{ele.rating.average}}
+        <div class="absolute-bottom custom-caption q-pa-sm row">
+          <div class="col-md-6">
+            <div class="text-h2 text-white">{{ele.name}}</div>
+            <div class="items-center">
+              <q-rating
+                size="2em"
+                v-model="ele.rating.average"
+                :max="10"
+                color="orange"
+                icon="star_border"
+                icon-selected="star"
+                icon-half="star_half"
+                no-dimming
+                readonly
+              ></q-rating>
+              {{ele.rating.average}}
+            </div>
+            <div class="text-subtitle1 text-white">
+              <q-icon name="language" />
+              {{ele.language}}
+            </div>
+            <q-chip
+              square
+              clickable
+              @click="goTo(genre)"
+              class="text-bold"
+              :to="{name:'singleGenres',params:{type:genre}}"
+              v-for="(genre,index) in ele.genres"
+              :key="index"
+            >
+              <q-avatar icon="category" color="teal" text-color="white" />
+              {{genre}}
+            </q-chip>
           </div>
-          <div class="text-h2 text-white">{{ele.name}}</div>
-          <div class="text-subtitle1 text-white">{{ele.language}}</div>
-          <q-chip
-            clickable
-            color="teal"
-            text-color="white"
-            :to="{name:'singleGenres',params:{type:genres}}"
-            v-for="(genre,index) in ele.genres"
-            :key="index"
-            icon="category"
-          >{{genre}}</q-chip>
+          <div class="col-md-6 items-center">
+            <q-btn
+              round
+              color="primary"
+              icon="play_arrow"
+              size="lg"
+              type="a"
+              :href="ele.url"
+              target="_blank"
+            />
+          </div>
         </div>
       </q-carousel-slide>
     </q-carousel>
@@ -49,6 +68,12 @@ export default {
   props: {
     elements: Array
   },
+  methods: {
+    goTo(genere) {
+      console.log(genere);
+      this.$router.push({ name: "singleGenres", params: { type: genere } });
+    }
+  },
   mounted: function() {
     console.log(this.elements);
   }
@@ -59,7 +84,7 @@ export default {
   height: 90vh;
 }
 .custom-caption {
-  text-align: center;
+  text-align: left;
   padding: 12px;
   margin-bottom: 70px;
   color: white;

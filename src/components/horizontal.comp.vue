@@ -6,7 +6,9 @@
       transition-next="slide-left"
       swipeable
       animated
+      control-type="regular"
       control-color="primary"
+      control-text-color="white"
       arrows
       height="400px"
       class="bg-grey-1 shadow-2 rounded-borders"
