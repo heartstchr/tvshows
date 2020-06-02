@@ -10,7 +10,7 @@
         <div class="absolute-bottom custom-caption q-pa-sm row">
           <div class="col-md-6">
             <div class="text-h2 text-white">{{ele.name}}</div>
-            <div class="items-center">
+            <div class="items-center" v-if="ele.rating">
               <q-rating
                 size="2em"
                 v-model="ele.rating.average"
@@ -47,9 +47,7 @@
               color="primary"
               icon="play_arrow"
               size="lg"
-              type="a"
-              :href="ele.url"
-              target="_blank"
+              :to="{name:'singleTvshows',params:{id:ele.id}}"
             />
           </div>
         </div>

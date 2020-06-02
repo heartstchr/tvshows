@@ -8,6 +8,7 @@
           name="info"
           color="white"
           style="top: 8px; left: 8px"
+          v-if="element.rating"
         >
           <q-tooltip>{{element.rating.average}}</q-tooltip>
         </q-icon>

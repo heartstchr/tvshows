@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row">
-      <home-slider :elements="popularTvshow"></home-slider>
+      <home-slider :elements="limitPopularTvshow"></home-slider>
     </div>
     <!-- <div class="row"> -->
       <!-- <div v-for="(tvshow,index) in tvshows" :key="index" class="col col-md-3">
@@ -22,9 +22,9 @@ import HomeSlider from "@/components/homeSlider.comp.vue";
 export default {
   name: "Home",
   computed: {
-    ...mapGetters(["tvshows", "isTvShowsFetching", "isTvShowsFetched"]),
-    popularTvshow(){
-      return this.tvshows.slice(0,5)
+    ...mapGetters(["tvshows","popularTvShows", "isTvShowsFetching", "isTvShowsFetched"]),
+    limitPopularTvshow(){
+      return this.popularTvShows.slice(0,5)
     }
   },
   components: {

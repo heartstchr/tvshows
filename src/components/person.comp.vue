@@ -3,7 +3,7 @@
       <q-card inline class="card full-height" @click="details(element.id)">
         <q-parallax :src="element.image.medium" :height="300" />
         <q-card-section>
-          <div class="row no-wrap items-center" v-if="detail">
+          <div class="row no-wrap items-center" v-if="detail && element.rating">
             <q-rating
               size="2em"
               v-model="element.rating.average"

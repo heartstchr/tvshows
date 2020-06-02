@@ -4,6 +4,7 @@ import axios from 'axios'
 // initial state
 const state = {
   tvshows: [],
+  popularTvShows:[],
   tvshowsDetails:{},
   fetching: false,
   fetched: false,
@@ -25,6 +26,7 @@ const state = {
 // getters
 const getters = {
   tvshows: state => state.tvshows,
+  popularTvShows: state => state.popularTvShows,
   isTvShowsFetching: state => state.fetching,
   isTvShowsFetched: state => state.fetched,
   allGenres: state=> state.uniqueGenres,
@@ -42,7 +44,6 @@ const actions = {
       .catch(err =>( console.log(err)));
   },
   getTvShowDetails({ commit, getters }, id) {
-    console.log('getTvShowDetails',typeof id)
     axios.get(`${getters.ENDPOINT}shows/${id}?embed[]=episodes&embed[]=cast&embed[]=crew`)
       .then(res => {
         commit(types.FETCH_TV_SHOWS_DETAILS, res.data)
@@ -73,11 +74,13 @@ const mutations = {
     state.fetching = false
     state.fetched = true
     state.tvshows = tvshows
+    state.popularTvShows = state.tvshows.sort((a, b) =>
+      a.rating.average > b.rating.average ? -1 : 1
+    )
     state.uniqueGenres = uniqueGenres
     state.genresTvShows =genresTvShows
   },
   [types.FETCH_TV_SHOWS_DETAILS](state, tvshowsDetails){
-    console.log('tvshowsDetails---->', tvshowsDetails)
     state.seasons = tvshowsDetails._embedded.episodes.reduce(function(r, a) {
       r[a.season] = r[a.season] || [];
       r[a.season].push(a);

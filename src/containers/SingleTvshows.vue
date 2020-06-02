@@ -33,7 +33,7 @@
           {{tvshowsDetails.language}}
         </div>
         <div class="fit">
-          <div class="text-subtitle2">
+          <div class="text-subtitle2" v-if="tvshowsDetails.rating">
             <q-rating
               size="18px"
               v-model="tvshowsDetails.rating.average"
@@ -110,7 +110,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.params);
     this.$store.dispatch("getTvShowDetails", this.$route.params.id);
   },
   computed: {
