@@ -1,6 +1,6 @@
 // initial state
 const state = {
-  ENDPOINT : 'http://api.tvmaze.com/'
+  ENDPOINT: 'http://api.tvmaze.com/'
 }
 
 // getters

@@ -7,12 +7,11 @@ import route from './modules/route.module'
 import config from './modules/config.module'
 import tvShows from './modules/tvshows.module'
 
-import tvshowsPlugin from './plugins/tvshows.plugin'
+// import tvshowsPlugin from './plugins/tvshows.plugin'
 
 Vue.use(Vuex)
 
 const plugins = [
-  tvshowsPlugin,
   createPersistedState({
     storage: window.sessionStorage
   })

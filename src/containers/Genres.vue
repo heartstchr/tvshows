@@ -1,6 +1,11 @@
 <template>
-  <q-page class="flex">
-    <h1>Genres</h1>
+  <q-page>
+    <div>
+      <div v-for="(genres,index) in allGenres" :key="index" class="q-pa-md">
+        <q-item :to="{name:'singleGenres',params:{type:genres}}" class="text-h6 text-bold" > <q-icon name="category" /> {{genres}}</q-item>
+        <horizontal :genresTvShow="genresTvShows[genres]"></horizontal>
+      </div>
+    </div>
   </q-page>
 </template>
 
@@ -8,10 +13,15 @@
 </style>
 
 <script>
+import { mapGetters } from "vuex";
+import Horizontal from "@/components/horizontal.comp.vue";
 export default {
-  name: 'Home',
-  props: {
-    msg: String
+  name: 'Genres',
+  computed: {
+    ...mapGetters(["isTvShowsFetching", "isTvShowsFetched","allGenres", "genresTvShows"])
+  },
+  components: {
+    Horizontal
   }
 }
 </script>

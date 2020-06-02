@@ -13,13 +13,15 @@
         />
 
         <q-toolbar-title>
-          <div class="logo" ><q-img
-          src="http://static.tvmaze.com/images/tvm-header-logo.png"
-          /> </div>
+          <div class="logo">
+            <a href="/">
+              <q-img src="http://static.tvmaze.com/images/tvm-header-logo.png" />
+            </a>
+          </div>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
-    <drawer-comp :drawerOpen="leftDrawerOpen" ></drawer-comp>
+    <drawer-comp :drawerOpen="leftDrawerOpen"></drawer-comp>
     <q-page-container>
       <router-view></router-view>
     </q-page-container>
@@ -27,22 +29,25 @@
 </template>
 
 <script>
-import DrawerComp from '@/components/common/drawer.comp.vue'
+import DrawerComp from "@/components/common/drawer.comp.vue";
 export default {
-  name: 'LayoutDefault',
-  data () {
+  name: "LayoutDefault",
+  data() {
     return {
       leftDrawerOpen: true
-    }
+    };
   },
   components: {
     DrawerComp
+  },
+  mounted: function() {
+    this.leftDrawerOpen =false
   }
-}
+};
 </script>
 
 <style>
 .logo {
- width: 75px;
+  width: 75px;
 }
 </style>

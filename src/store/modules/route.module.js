@@ -5,10 +5,10 @@ import router from '../../router'
 router.afterEach((to) => {
   switch (to.name) {
     case 'home':
-      Store.dispatch('fetchTvShows')
+      Store.dispatch('getTvShows')
       break
     case 'genere':
-      Store.dispatch('fetchTvShows')
+      Store.dispatch('getTvShows')
       break
   }
 })
