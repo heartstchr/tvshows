@@ -13,7 +13,7 @@
           <q-card>
             <q-card-section class="row">
               <div v-for="(episodes,index) in season" :key="index" class="col-md-4">
-                <card :element="episodes" :detail="false"></card>
+                <card :element="episodes" :showDetails="showDetails"></card>
               </div>
             </q-card-section>
           </q-card>
@@ -27,6 +27,11 @@
 import Card from "@/components/card.comp.vue";
 export default {
   name: "Episodes",
+  data() {
+    return {
+      showDetails: true
+    };
+  },
   props: {
     seasons: Object,
     detail: Boolean

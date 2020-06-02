@@ -9,11 +9,11 @@
           color="white"
           style="top: 8px; left: 8px"
         >
-          <q-tooltip v-html="element.summary" />
+          <q-tooltip>{{element.rating.average}}</q-tooltip>
         </q-icon>
       </q-img>
       <q-card-section>
-        <div class="row no-wrap items-center" v-if="showDetails">
+        <div class="row no-wrap items-center" v-if="showDetails && element.rating">
           <q-rating
             size="1em"
             v-model="element.rating.average"
@@ -31,9 +31,12 @@
           <q-icon v-if="person" name="person" />
           {{element.name}}
         </div>
-        <div class="text-caption text-grey q-ml-sm">
+        <div class="text-caption text-grey q-ml-sm" v-if="showDetails && element.language">
           <q-icon name="language" />
           {{element.language}}
+        </div>
+        <div class="text-caption text-grey q-ml-sm" v-if="showDetails && element.number">
+          Episode {{element.number}}
         </div>
         <div v-if="person" class="text-subtitle2">as {{type}}</div>
         <div class="text-subtitle2 details" v-if="showDetails" v-html="element.summary"></div>
