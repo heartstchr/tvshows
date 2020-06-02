@@ -19,6 +19,14 @@
             </a>
           </div>
         </q-toolbar-title>
+        <q-space />
+
+        <q-input dense standout v-model="search" input-class="text-right" class="q-ml-md" @keydown.enter.prevent="searchItem(search)">
+          <template v-slot:append>
+            <q-icon v-if="search === ''" name="search" />
+            <q-icon v-else name="clear" class="cursor-pointer" @click="search = ''" />
+          </template>
+        </q-input>
       </q-toolbar>
     </q-header>
     <drawer-comp :drawerOpen="leftDrawerOpen"></drawer-comp>
@@ -29,19 +37,31 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import DrawerComp from "@/components/common/drawer.comp.vue";
 export default {
   name: "LayoutDefault",
   data() {
     return {
-      leftDrawerOpen: true
+      leftDrawerOpen: true,
+      search: ""
     };
   },
   components: {
     DrawerComp
   },
+  computed: {
+    ...mapActions(["searchTvShows"])
+  },
   mounted: function() {
-    this.leftDrawerOpen =false
+    this.leftDrawerOpen = false;
+  },
+  methods: {
+    searchItem( search ){
+      console.log('search', search);
+      this.$store.dispatch("searchTvShows", search);
+      this.$router.push({ name: "search", params: { q: search } });
+    }
   }
 };
 </script>

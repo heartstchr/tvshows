@@ -10,6 +10,9 @@ router.afterEach((to) => {
     case 'genere':
       Store.dispatch('getTvShows')
       break
+    case 'search':
+      Store.dispatch('searchTvShows', to.params.q)
+      break
   }
 })
 

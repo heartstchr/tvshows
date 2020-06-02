@@ -1,20 +1,20 @@
 <template>
   <div class="q-pa-sm">
     <q-card inline class="card full-height" @click="details(element.id)">
-      <q-img :src="element.image.medium" :alt="element.name">
+      <q-img :src="element.image.medium" :alt="element.name" v-if="element.image">
         <q-icon
           class="absolute all-pointer-events"
           size="32px"
           name="info"
           color="white"
           style="top: 8px; left: 8px"
-          v-if="element.rating"
+          v-if="element.rating && element.rating.average"
         >
-          <q-tooltip>{{element.rating.average}}</q-tooltip>
+          <q-tooltip> Rating:{{element.rating.average}}</q-tooltip>
         </q-icon>
       </q-img>
       <q-card-section>
-        <div class="row no-wrap items-center" v-if="showDetails && element.rating">
+        <div class="row no-wrap items-center" v-if="showDetails && element.rating && element.rating.average">
           <q-rating
             size="1em"
             v-model="element.rating.average"

@@ -13,6 +13,7 @@ const state = {
   seasons:[],
   casts:[],
   crews:[],
+  searchedShows:[],
   uniqueGenres:[
     "Drama",
     "Action",
@@ -34,7 +35,8 @@ const getters = {
   tvshowsDetails: state => state.tvshowsDetails,
   seasons: state => state.seasons,
   casts: state => state.casts,
-  crews: state => state.crews
+  crews: state => state.crews,
+  searchedShows: state => state.searchedShows
 }
 
 // actions
@@ -52,6 +54,13 @@ const actions = {
   },
   fetchTvShowsSuccess({ commit }, tvshows) {
     commit(types.FETCH_TV_SHOWS, tvshows)
+  },
+  searchTvShows({ commit, getters }, search){
+    axios.get(`${getters.ENDPOINT}search/shows?q=${search}`)
+      .then(res => {
+        commit(types.SEARCHED_TV_SHOWS, res.data)
+      })
+      .catch();
   }
 }
 
@@ -89,6 +98,13 @@ const mutations = {
     state.casts = tvshowsDetails._embedded.cast
     state.crews = tvshowsDetails._embedded.crew
     state.tvshowsDetails = tvshowsDetails
+  },
+  [types.SEARCHED_TV_SHOWS](state, searchedShows){
+    let searchedShowsList=[]
+    searchedShows.forEach((ele)=>{
+      searchedShowsList.push(ele.show)
+    })
+    state.searchedShows=searchedShowsList
   }
 }
 

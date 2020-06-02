@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from './containers/Home'
+import Search from './containers/Search'
 import Error404 from './containers/Error404'
 import Genres from './containers/Genres'
 import SingleGenres from './containers/SingleGenres'
@@ -16,6 +17,11 @@ export default new VueRouter({
       name: 'home',
       path: '/',
       component: Home
+    },
+    {
+      name: 'search',
+      path: '/search/:q',
+      component: Search
     },
     {
       name: 'singleTvshows',
