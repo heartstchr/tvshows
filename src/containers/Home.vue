@@ -17,7 +17,7 @@ import HomeSlider from "@/components/homeSlider.comp.vue";
 export default {
   name: "Home",
   computed: {
-    ...mapGetters(["tvshows","popularTvShows", "isTvShowsFetching", "isTvShowsFetched"]),
+    ...mapGetters(["tvshows","popularTvShows"]),
     limitPopularTvshow(){
       return this.popularTvShows.slice(0,5)
     }

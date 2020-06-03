@@ -4,12 +4,10 @@ module.exports = {
   collectCoverageFrom: [
     "**/*.{js,vue}",
     "!**/node_modules/**",
-    "!**/dist/**",
     "!**/*.config.js",
-    "!**/vendor/**",
-    "!**/tests/e2e/**",
     "!**/main.js",
     "!**/quasar.js",
+    "!**/dist/**",
     "!**/coverage/**",
     "!**/src/plugins/**"
   ],

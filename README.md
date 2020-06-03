@@ -36,3 +36,46 @@ yarn lint
 ```
 yarn test
 ```
+
+
+.
+├── README.md
+├── babel.config.js
+├── jest.config.js
+├── package.json
+├── public
+│   └── index.html
+├── src
+│   ├── App.vue
+│   ├── assets
+│   ├── components
+│   │   ├── cast.comp.vue
+│   │   ├── common
+│   │   ├── crew.comp.vue
+│   │   ├── episodes.comp.vue
+│   │   ├── homeSlider.comp.vue
+│   │   └── horizontal.comp.vue
+│   ├── containers
+│   │   ├── Error404.vue
+│   │   ├── Genres.vue
+│   │   ├── Home.vue
+│   │   ├── Search.vue
+│   │   ├── SingleGenres.vue
+│   │   └── SingleTvshows.vue
+│   ├── main.js
+│   ├── quasar.js
+│   ├── router.js
+│   ├── store
+│   │   ├── index.js
+│   │   ├── modules
+│   │   └── mutation-types.js
+│   └── styles
+│       ├── quasar.styl
+│       └── quasar.variables.styl
+├── tests
+│   └── unit
+│       ├── app.spec.js
+│       ├── components
+│       └── containers
+├── vue.config.js
+└── yarn.lock

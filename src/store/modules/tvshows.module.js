@@ -6,8 +6,6 @@ const state = {
   tvshows: [],
   popularTvShows:[],
   tvshowsDetails:{},
-  fetching: false,
-  fetched: false,
   errorMessage: '',
   genresTvShows: {},
   seasons:[],
@@ -28,8 +26,6 @@ const state = {
 const getters = {
   tvshows: state => state.tvshows,
   popularTvShows: state => state.popularTvShows,
-  isTvShowsFetching: state => state.fetching,
-  isTvShowsFetched: state => state.fetched,
   allGenres: state=> state.uniqueGenres,
   genresTvShows: state => state.genresTvShows,
   tvshowsDetails: state => state.tvshowsDetails,
@@ -51,9 +47,6 @@ const actions = {
         commit(types.FETCH_TV_SHOWS_DETAILS, res.data)
       })
       .catch();
-  },
-  fetchTvShowsSuccess({ commit }, tvshows) {
-    commit(types.FETCH_TV_SHOWS, tvshows)
   },
   searchTvShows({ commit, getters }, search){
     axios.get(`${getters.ENDPOINT}search/shows?q=${search}`)
@@ -80,8 +73,6 @@ const mutations = {
       });
       genresTvShows[genres] = genresTvShows[genres].slice(0, this.slideRange);
     });
-    state.fetching = false
-    state.fetched = true
     state.tvshows = tvshows
     state.popularTvShows = state.tvshows.sort((a, b) =>
       a.rating.average > b.rating.average ? -1 : 1

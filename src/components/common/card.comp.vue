@@ -55,7 +55,6 @@ export default {
   },
   methods: {
     details(id) {
-      console.log(id);
       this.$store.dispatch("getTvShowDetails", this.$route.params.id);
       this.$router.push({ name: "singleTvshows", params: { id: id } });
     }

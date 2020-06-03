@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     searchItem(search) {
-      console.log("search", search);
       this.$store.dispatch("searchTvShows", search);
       this.$router.push({ name: "search", params: { q: search } });
     }

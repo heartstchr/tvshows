@@ -18,7 +18,7 @@ import Horizontal from "@/components/horizontal.comp.vue";
 export default {
   name: 'Genres',
   computed: {
-    ...mapGetters(["isTvShowsFetching", "isTvShowsFetched","allGenres", "genresTvShows"])
+    ...mapGetters(["allGenres", "genresTvShows"])
   },
   components: {
     Horizontal

@@ -68,12 +68,8 @@ export default {
   },
   methods: {
     goTo(genere) {
-      console.log(genere);
       this.$router.push({ name: "singleGenres", params: { type: genere } });
     }
-  },
-  mounted: function() {
-    console.log(this.elements);
   }
 };
 </script>

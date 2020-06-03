@@ -64,4 +64,10 @@ describe('SingleTvshows.vue', () => {
             expect(Crew).toBeTruthy();
         });
     });
+
+    // it('get tabs of single tvshow page', () => {
+    //     singleTvshowsWrapper.vm.getTabs()
+    //     console.log('singleTvshowsWrapper.vm.getTabs()',singleTvshowsWrapper.vm.getTabs())
+    //     expect( typeof store.state.tvShows.genresTvShows).toBe('object')
+    // })
 })
