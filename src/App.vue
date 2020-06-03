@@ -6,7 +6,7 @@
           flat
           dense
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
+          @click="getLeftDrawer"
           aria-label="Menu"
           icon="menu"
           class="text-primary"
@@ -21,15 +21,10 @@
         </q-toolbar-title>
         <q-space />
 
-        <q-input dense standout v-model="search" input-class="text-right" class="q-ml-md" @keydown.enter.prevent="searchItem(search)">
-          <template v-slot:append>
-            <q-icon v-if="search === ''" name="search" />
-            <q-icon v-else name="clear" class="cursor-pointer" @click="search = ''" />
-          </template>
-        </q-input>
+        <search-box></search-box>
       </q-toolbar>
     </q-header>
-    <drawer-comp :drawerOpen="leftDrawerOpen"></drawer-comp>
+    <drawer-comp></drawer-comp>
     <q-page-container>
       <router-view></router-view>
     </q-page-container>
@@ -39,28 +34,19 @@
 <script>
 import { mapActions } from "vuex";
 import DrawerComp from "@/components/common/drawer.comp.vue";
+import SearchBox from "@/components/common/search.comp.vue";
 export default {
   name: "LayoutDefault",
-  data() {
-    return {
-      leftDrawerOpen: true,
-      search: ""
-    };
-  },
   components: {
-    DrawerComp
+    DrawerComp,
+    SearchBox
   },
-  computed: {
-    ...mapActions(["searchTvShows"])
+  computed:{
+    ...mapActions(['toggelMenu'])
   },
-  mounted: function() {
-    this.leftDrawerOpen = false;
-  },
-  methods: {
-    searchItem( search ){
-      console.log('search', search);
-      this.$store.dispatch("searchTvShows", search);
-      this.$router.push({ name: "search", params: { q: search } });
+  methods:{
+    getLeftDrawer(){
+      this.$store.dispatch("toggelMenu")
     }
   }
 };

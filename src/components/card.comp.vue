@@ -28,8 +28,8 @@
           ></q-rating>
           <div>{{element.rating.average}}</div>
         </div>
+        <div v-if="person" class="text-subtitle2">{{type}}</div>
         <div class="text-h6">
-          <q-icon v-if="person" name="person" />
           {{element.name}}
         </div>
         <div class="text-caption text-grey q-ml-sm" v-if="showDetails && element.language">
@@ -39,7 +39,6 @@
         <div class="text-caption text-grey q-ml-sm" v-if="showDetails && element.number">
           Episode {{element.number}}
         </div>
-        <div v-if="person" class="text-subtitle2">as {{type}}</div>
         <div class="text-subtitle2 details" v-if="showDetails" v-html="element.summary"></div>
       </q-card-section>
     </q-card>

@@ -5,7 +5,7 @@
       <div
         v-for="(tvshow,index) in searchedShows"
         :key="index"
-        class="col col-md-3"
+        class="col-md-3 col-sm-6"
       >
         <card :element="tvshow" :showDetails="details"></card>
       </div>
