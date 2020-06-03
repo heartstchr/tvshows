@@ -7,7 +7,6 @@ import route from './modules/route.module'
 import config from './modules/config.module'
 import tvShows from './modules/tvshows.module'
 
-// import tvshowsPlugin from './plugins/tvshows.plugin'
 
 Vue.use(Vuex)
 

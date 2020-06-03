@@ -13,7 +13,6 @@ const getters = {
 // actions
 const actions = {
   toggelMenu({state,commit}){
-    console.log('leftDrawerOpen-->',state.leftDrawerOpen)
     commit(types.TOGGEL_MENU, state.leftDrawerOpen)
   }
 }

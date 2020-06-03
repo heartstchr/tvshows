@@ -3,12 +3,7 @@
     <div class="row">
       <home-slider :elements="limitPopularTvshow"></home-slider>
     </div>
-    <!-- <div class="row"> -->
-      <!-- <div v-for="(tvshow,index) in tvshows" :key="index" class="col col-md-3">
-        <card :element="tvshow"></card>
-      </div> -->
       <genres></genres>
-    <!-- </div> -->
   </q-page>
 </template>
 

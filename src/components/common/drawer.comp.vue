@@ -1,7 +1,7 @@
 <template>
     <q-drawer :value="leftDrawerOpen" show-if-above bordered content-class="bg-grey-2">
       <q-list>
-        <q-item-label header>Essential Links</q-item-label>
+        <!-- <q-item-label header>Essential Links</q-item-label> -->
         <q-item>
           <search-box></search-box>
         </q-item>

@@ -114,11 +114,6 @@ export default {
   },
   computed: {
     ...mapGetters(["tvshows", "tvshowsDetails", "seasons", "casts", "crews"]),
-    tvShowItem: function() {
-      return this.tvshows.filter(ele => {
-        return ele.id == this.$route.params.id;
-      })[0];
-    },
     getTabs: function() {
       let tabs = [];
       let icons = {

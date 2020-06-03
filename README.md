@@ -6,7 +6,7 @@
 -   `Yarn` 1.17.0
 -   `@vue/cli` 4.4.1
 
-## Setup unittest and UI component framework
+## Setup Unit test and UI component framework
 ```
 vue add unit-jest
 vue add quasar
@@ -34,5 +34,5 @@ yarn lint
 
 ### :rotating_light: Unit test 
 ```
-yarn test:unit
+yarn test
 ```

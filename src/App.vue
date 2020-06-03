@@ -21,7 +21,7 @@
         </q-toolbar-title>
         <q-space />
 
-        <search-box></search-box>
+        <search-comp></search-comp>
       </q-toolbar>
     </q-header>
     <drawer-comp></drawer-comp>
@@ -34,12 +34,12 @@
 <script>
 import { mapActions } from "vuex";
 import DrawerComp from "@/components/common/drawer.comp.vue";
-import SearchBox from "@/components/common/search.comp.vue";
+import SearchComp from "@/components/common/search.comp.vue";
 export default {
   name: "LayoutDefault",
   components: {
     DrawerComp,
-    SearchBox
+    SearchComp
   },
   computed:{
     ...mapActions(['toggelMenu'])
