@@ -16,32 +16,50 @@ export default new VueRouter({
     {
       name: 'home',
       path: '/',
-      component: Home
+      component: Home,
+      meta: {
+        title: 'Dashbord | Tv Shows',
+      }
     },
     {
       name: 'search',
       path: '/search/:q',
-      component: Search
+      component: Search,
+      meta: {
+        title: 'Search | Tv Shows',
+      }
     },
     {
       name: 'singleTvshows',
       path: '/tvshows/:id',
-      component: SingleTvshows
+      component: SingleTvshows,
+      meta: {
+        title: 'Details of Tv shows | Tv Shows',
+      }
     },
     {
       name: 'genres',
       path: '/genres',
-      component: Genres
+      component: Genres,
+      meta: {
+        title: 'Genres | Tv Shows',
+      }
     },
     {
       name: 'singleGenres',
       path: '/genres/:type',
-      component: SingleGenres
+      component: SingleGenres,
+      meta: {
+        title: 'All tv shows from Genres | Tv Shows',
+      }
     },
     // - * ---------------------
     {
       path: '*',
-      component: Error404
+      component: Error404,
+      meta: {
+        title: 'Error | Tv Shows',
+      }
     }
   ]
 })
