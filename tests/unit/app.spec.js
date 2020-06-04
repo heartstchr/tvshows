@@ -4,13 +4,13 @@ import Quasar from "quasar";
 import VueRouter from "vue-router";
 import App from "@/App.vue";
 import store from '@/store'
+import router from '@/router'
 import Home from '@/containers/Home.vue'
 import DrawerComp from "@/components/common/drawer.comp.vue";
 import SearchComp from "@/components/common/search.comp.vue";
 
 describe('App.vue', () => {
   let mainWrapper
-  const router = new VueRouter({ path: "/", name: "Home" });
   beforeEach(() => {
     Vue.use(VueRouter);
     Vue.use(Quasar);

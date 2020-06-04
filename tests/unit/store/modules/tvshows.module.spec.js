@@ -1,4 +1,4 @@
-import store from '../../../../src//store'
+import store from '../../../../src/store'
 
 describe('tvshows.module.js', () => {
     const genres = [
@@ -8,6 +8,11 @@ describe('tvshows.module.js', () => {
         "Romance",
         "Horror",
         "Family"
+    ]
+    const tabs =[
+        {name:"cast",icon:"cast"},
+        {name:"episodes",icon:"ondemand_video"},
+        {name:"crew",icon:"streetview"}
     ]
     describe("tvshow getters", () => {
         it("returns tvshows", () => {
@@ -29,6 +34,10 @@ describe('tvshows.module.js', () => {
         it("returns crews", () => {
             const actual = store.getters.crews
             expect(typeof actual).toEqual("object")
+        })
+        it("returns tabs", () => {
+            const actual = store.getters.tabs
+            expect(actual).toEqual([])
         })
     })
 })
