@@ -13,19 +13,9 @@
       height="400px"
       class="bg-grey-1 shadow-2 rounded-borders"
     >
-      <q-carousel-slide :name="1" class="">
+      <q-carousel-slide :name="parentIndex" v-for="parentIndex in sets" :key="parentIndex">
         <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-          <q-img v-for="(tvshows,index) in genresTvShow.slice(0,4)" :key="index" class="rounded-borders col-md-3" :src="tvshows.image.medium" @click="details(tvshows.id)"/>
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide :name="2" class="column no-wrap">
-        <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-          <q-img v-for="(tvshows,index) in genresTvShow.slice(5,10)" :key="index" class="rounded-borders col-md-3" :src="tvshows.image.medium" @click="details(tvshows.id)" />
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide :name="2" class="column no-wrap">
-        <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-          <q-img v-for="(tvshows,index) in genresTvShow.slice(11,15)" :key="index" class="rounded-borders col-md-3" :src="tvshows.image.medium" @click="details(tvshows.id)" />
+          <q-img v-for="(tvshows,index) in getSetOfShows(parentIndex,5)" :key="index" class="rounded-borders col-md-3" :src="tvshows.image.medium" @click="details(tvshows.id)"/>
         </div>
       </q-carousel-slide>
     </q-carousel>
@@ -36,7 +26,8 @@ export default {
   name: "Horizontal",
   data() {
     return {
-      slide: 1
+      slide: 1,
+      sets:5
     };
   },
   props: {
@@ -46,6 +37,9 @@ export default {
     details(id) {
       this.$store.dispatch('getTvShowDetails',this.$route.params.id)
       this.$router.push({ name: "singleTvshows", params: { id: id } });
+    },
+    getSetOfShows(index){
+      return this.genresTvShow ? this.genresTvShow.slice((index-1)*4,index*4): []
     }
   }
 };

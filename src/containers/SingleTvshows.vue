@@ -6,7 +6,7 @@
           <div class="row justify-between">
             <q-parallax :height="500">
               <template v-slot:media class="fit">
-                <img :src="tvshowsDetails.image.original" />
+                <img v-if="tvshowsDetails.image" :src="tvshowsDetails.image.original" />
               </template>
               <div class="text-h5 absolute-bottom text-center">
                 <q-btn
@@ -95,7 +95,7 @@
 </style>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import Episodes from "@/components/episodes.comp.vue";
 import Cast from "@/components/cast.comp.vue";
 import Crew from "@/components/crew.comp.vue";
@@ -112,8 +112,7 @@ export default {
     this.$store.dispatch("getTvShowDetails", this.$route.params.id);
   },
   computed: {
-    ...mapGetters(["tvshows", "tvshowsDetails", "seasons", "casts", "crews", "tabs"]),
-    ...mapActions(['getTabs'])
+    ...mapGetters(["tvshows", "tvshowsDetails", "seasons", "casts", "crews", "tabs"])
   },
   components: {
     Episodes,

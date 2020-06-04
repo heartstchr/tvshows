@@ -2,13 +2,12 @@ import { shallowMount } from "@vue/test-utils";
 import Vue from "vue";
 import Quasar from "quasar";
 import VueRouter from "vue-router";
-import store from '@/store'
-import Search from '@/containers/Search.vue'
-import Card from "@/components/common/card.comp.vue";
+import store from '@/store';
+import router from '@/router';
+import Search from '@/containers/Search.vue';
 
 describe('Search.vue', () => {
     let searchWrapper
-    const router = new VueRouter({ path: "/search", name: "search" });
     beforeEach(() => {
         Vue.use(VueRouter);
         Vue.use(Quasar);

@@ -3,11 +3,11 @@ import Vue from "vue";
 import Quasar from "quasar";
 import VueRouter from "vue-router";
 import store from '@/store'
+import router from '@/router'
 import SingleGeneres from '@/containers/SingleGenres.vue'
 
 describe('SingleGeneres.vue', () => {
     let singleGenresWrapper
-    const router = new VueRouter({ path: "/genres/:type", name: "singleGenres" });
     beforeEach(() => {
         Vue.use(VueRouter);
         Vue.use(Quasar);

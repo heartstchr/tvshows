@@ -3,13 +3,13 @@ import Vue from "vue";
 import Quasar from "quasar";
 import VueRouter from "vue-router";
 import store from '@/store'
+import router from '@/router'
 import Home from '@/containers/Home.vue'
 import Genres from "@/containers/Genres";
 import HomeSlider from "@/components/homeSlider.comp.vue";
 
 describe('Home.vue', () => {
     let homeWrapper
-    const router = new VueRouter({ path: "/", name: "Home" });
     beforeEach(() => {
         Vue.use(VueRouter);
         Vue.use(Quasar);

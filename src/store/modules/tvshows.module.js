@@ -56,20 +56,6 @@ const actions = {
         commit(types.SEARCHED_TV_SHOWS, res.data)
       })
       .catch();
-  },
-  getTabs({ commit, state }){
-    let tabs = [];
-    let icons = {
-      episodes: "ondemand_video",
-      cast: "cast",
-      crew: "streetview",
-      image: "tv"
-    };
-    Object.keys(state.tvshowsDetails._embedded).forEach(ele => {
-      tabs.push({ name: ele, icon: icons[ele] });
-    });
-    console.log(tabs)
-    commit(types.SET_TABS, tabs)
   }
 }
 
@@ -97,8 +83,19 @@ const mutations = {
     state.genresTvShows =genresTvShows
   },
   [types.FETCH_TV_SHOWS_DETAILS](state, tvshowsDetails){
+    let tabs = [];
+    let icons = {
+      episodes: "ondemand_video",
+      cast: "cast",
+      crew: "streetview"
+    };
+    Object.keys(tvshowsDetails._embedded).forEach(ele => {
+      tabs.push({ name: ele, icon: icons[ele] });
+    });
+    console.log(tabs)
+    state.tabs = tabs
     state.seasons = tvshowsDetails._embedded.episodes.reduce(function(r, a) {
-      r[a.season] = r[a.season] || [];
+      r[a.season] = r[a.season] || [];Object.keys(tvshowsDetails._embedded)
       r[a.season].push(a);
       return r;
     }, Object.create(null));
@@ -112,9 +109,6 @@ const mutations = {
       searchedShowsList.push(ele.show)
     })
     state.searchedShows=searchedShowsList
-  },
-  [types.SET_TABS](state, tabs){
-    state.tabs = tabs
   }
 }
 

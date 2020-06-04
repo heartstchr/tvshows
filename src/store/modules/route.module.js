@@ -7,6 +7,9 @@ router.afterEach((to) => {
     case 'home':
       Store.dispatch('getTvShows')
       break
+    case 'genres':
+      Store.dispatch('getTvShows')
+      break
     case 'search':
       Store.dispatch('searchTvShows', to.params.q)
       break
