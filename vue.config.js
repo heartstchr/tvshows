@@ -7,5 +7,6 @@ module.exports = {
   },
   transpileDependencies: [
     'quasar'
-  ]
+  ],
+  publicPath: 'https://heartstchr.github.io/tvmaze/'
 }
