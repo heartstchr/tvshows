@@ -48,6 +48,9 @@ export default {
     getLeftDrawer(){
       this.$store.dispatch("toggelMenu")
     }
+  },
+  mounted(){
+    this.$store.dispatch("toggelMenu")
   }
 };
 </script>

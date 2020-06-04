@@ -57,6 +57,6 @@ describe('App.vue', () => {
   });
   it('method testing', () => {
     mainWrapper.vm.getLeftDrawer()
-    expect(store.state.config.leftDrawerOpen).toBe(true)
+    expect(store.state.config.leftDrawerOpen).toBe(false)
   })
 })

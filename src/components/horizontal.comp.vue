@@ -27,7 +27,8 @@ export default {
   data() {
     return {
       slide: 1,
-      sets:5
+      sets:5,
+      window:4
     };
   },
   props: {
@@ -39,7 +40,7 @@ export default {
       this.$router.push({ name: "singleTvshows", params: { id: id } });
     },
     getSetOfShows(index){
-      return this.genresTvShow ? this.genresTvShow.slice((index-1)*4,index*4): []
+      return this.genresTvShow ? this.genresTvShow.slice((index-1)*this.window,index*this.window): []
     }
   }
 };
