@@ -53,7 +53,7 @@
           <template v-slot:before>
             <q-tabs v-model="tab" vertical class="text-teal">
               <q-tab
-                v-for="(tab,index) in getTabs"
+                v-for="(tab,index) in tabs"
                 :key="index"
                 class="text-primary"
                 :icon="tab.icon"
@@ -71,7 +71,7 @@
               transition-prev="jump-up"
               transition-next="jump-up"
             >
-              <q-tab-panel v-for="(tab,index) in getTabs" :key="index" :name="tab.name">
+              <q-tab-panel v-for="(tab,index) in tabs" :key="index" :name="tab.name">
                 <div class="text-h4 q-mb-md text-uppercase">{{tab.name}}</div>
                 <div v-if="tab.name==='episodes'">
                   <episodes :seasons="seasons" />
@@ -95,7 +95,7 @@
 </style>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Episodes from "@/components/episodes.comp.vue";
 import Cast from "@/components/cast.comp.vue";
 import Crew from "@/components/crew.comp.vue";
@@ -105,28 +105,15 @@ export default {
     return {
       singleShow: {},
       tab: "episodes",
-      splitterModel: 20,
-      tabs: []
+      splitterModel: 20
     };
   },
   mounted() {
     this.$store.dispatch("getTvShowDetails", this.$route.params.id);
   },
   computed: {
-    ...mapGetters(["tvshows", "tvshowsDetails", "seasons", "casts", "crews"]),
-    getTabs: function() {
-      let tabs = [];
-      let icons = {
-        episodes: "ondemand_video",
-        cast: "cast",
-        crew: "streetview",
-        image: "tv"
-      };
-      Object.keys(this.tvshowsDetails._embedded).forEach(ele => {
-        tabs.push({ name: ele, icon: icons[ele] });
-      });
-      return tabs;
-    }
+    ...mapGetters(["tvshows", "tvshowsDetails", "seasons", "casts", "crews", "tabs"]),
+    ...mapActions(['getTabs'])
   },
   components: {
     Episodes,

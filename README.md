@@ -19,7 +19,7 @@ yarn install
 
 ### :zap: Compiles and hot-reloads for development
 ```
-yarn serve
+yarn start
 ```
 
 ### :rocket: Compiles and minifies for production

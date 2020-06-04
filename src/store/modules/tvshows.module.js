@@ -12,6 +12,7 @@ const state = {
   casts:[],
   crews:[],
   searchedShows:[],
+  tabs:[],
   uniqueGenres:[
     "Drama",
     "Action",
@@ -32,7 +33,8 @@ const getters = {
   seasons: state => state.seasons,
   casts: state => state.casts,
   crews: state => state.crews,
-  searchedShows: state => state.searchedShows
+  searchedShows: state => state.searchedShows,
+  tabs: state => state.tabs
 }
 
 // actions
@@ -54,6 +56,20 @@ const actions = {
         commit(types.SEARCHED_TV_SHOWS, res.data)
       })
       .catch();
+  },
+  getTabs({ commit, state }){
+    let tabs = [];
+    let icons = {
+      episodes: "ondemand_video",
+      cast: "cast",
+      crew: "streetview",
+      image: "tv"
+    };
+    Object.keys(state.tvshowsDetails._embedded).forEach(ele => {
+      tabs.push({ name: ele, icon: icons[ele] });
+    });
+    console.log(tabs)
+    commit(types.SET_TABS, tabs)
   }
 }
 
@@ -96,6 +112,9 @@ const mutations = {
       searchedShowsList.push(ele.show)
     })
     state.searchedShows=searchedShowsList
+  },
+  [types.SET_TABS](state, tabs){
+    state.tabs = tabs
   }
 }
 
