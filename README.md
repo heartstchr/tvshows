@@ -1,5 +1,7 @@
 # TV Shows
 [![Tvmaze](http://static.tvmaze.com/images/api/tvm_api.png)](http://www.tvmaze.com/api "Tvmaze")
+This application shows popular Tv Shows from the Tvmaze API. Details fo a Tv shows like episodes, cast, crew.
+Also, categorize in genres and functionality to search. And it is mobile responsive
 
 
 
