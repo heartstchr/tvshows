@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="row">
+    <div>
       <div class="col-md-6">
-        <div class="q-pa-md q-gutter-md">
+        <div class="q-gutter-md">
           <div class="row justify-between">
             <q-parallax :height="500">
               <template v-slot:media class="fit">

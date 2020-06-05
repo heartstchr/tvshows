@@ -92,7 +92,6 @@ const mutations = {
     Object.keys(tvshowsDetails._embedded).forEach(ele => {
       tabs.push({ name: ele, icon: icons[ele] });
     });
-    console.log(tabs)
     state.tabs = tabs
     state.seasons = tvshowsDetails._embedded.episodes.reduce(function(r, a) {
       r[a.season] = r[a.season] || [];Object.keys(tvshowsDetails._embedded)

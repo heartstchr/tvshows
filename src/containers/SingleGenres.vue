@@ -5,7 +5,7 @@
       <div
         v-for="(tvshow,index) in genresTvShows[$route.params.type]"
         :key="index"
-        class="col col-md-3"
+        class="col-md-3"
       >
         <card :element="tvshow" :showDetails="details"></card>
       </div>
