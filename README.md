@@ -79,7 +79,7 @@ yarn test
 │   └── styles // Quasar CSS and variables
 │       ├── quasar.styl
 │       └── quasar.variables.styl
-├── tests
+├── tests // test cases written same as src folder structure
 │   └── unit
 │       ├── app.spec.js
 │       ├── components
