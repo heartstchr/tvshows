@@ -6,7 +6,7 @@
           <div class="row justify-between">
             <q-parallax :height="500">
               <template v-slot:media class="fit">
-                <img v-if="tvshowsDetails.image" :src="tvshowsDetails.image.original" />
+                <img v-if="tvshowsDetails.image" :src="tvshowsDetails.image.medium" />
               </template>
               <div class="text-h5 absolute-bottom text-center">
                 <q-btn

@@ -5,7 +5,7 @@
         v-for="(ele,index) in elements"
         :key="index"
         :name="index"
-        :img-src="ele.image.original"
+        :img-src="ele.image.medium"
       >
         <div class="absolute-bottom custom-caption q-pa-sm row">
           <div class="col-md-6">
