@@ -1,12 +1,14 @@
 # TV Shows
 [![Tvmaze](http://static.tvmaze.com/images/api/tvm_api.png)](http://www.tvmaze.com/api "Tvmaze")
 
+
+
 ##### :dart: Prerequisites
 -   `Node-LTS` v12.4.0
 -   `Yarn` 1.17.0
 -   `@vue/cli` 4.4.1
 
-## Setup Unit test and UI component framework
+## Project dependencies of Unit test and UI component framework (optional)
 ```
 vue add unit-jest
 vue add quasar
@@ -27,7 +29,7 @@ yarn start
 yarn build
 ```
 
-### :shirt: Lints and fixes files
+### :shirt: Lints files
 ```
 yarn lint
 ```
@@ -37,7 +39,8 @@ yarn lint
 yarn test
 ```
 
-
+###  Folder Structure
+```
 .
 ├── README.md
 ├── babel.config.js
@@ -45,17 +48,17 @@ yarn test
 ├── package.json
 ├── public
 │   └── index.html
-├── src
-│   ├── App.vue
+├── src // All components,containers, store, router
+│   ├── App.vue //Root component
 │   ├── assets
 │   ├── components
 │   │   ├── cast.comp.vue
-│   │   ├── common
+│   │   ├── common // contains common components used in other components and containers
 │   │   ├── crew.comp.vue
 │   │   ├── episodes.comp.vue
 │   │   ├── homeSlider.comp.vue
 │   │   └── horizontal.comp.vue
-│   ├── containers
+│   ├── containers // Pages to bind components
 │   │   ├── Error404.vue
 │   │   ├── Genres.vue
 │   │   ├── Home.vue
@@ -67,9 +70,9 @@ yarn test
 │   ├── router.js
 │   ├── store
 │   │   ├── index.js
-│   │   ├── modules
+│   │   ├── modules //store's module
 │   │   └── mutation-types.js
-│   └── styles
+│   └── styles // Quasar CSS and variables
 │       ├── quasar.styl
 │       └── quasar.variables.styl
 ├── tests
@@ -79,3 +82,4 @@ yarn test
 │       └── containers
 ├── vue.config.js
 └── yarn.lock
+```

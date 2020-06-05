@@ -108,7 +108,7 @@ export default {
       splitterModel: 20
     };
   },
-  mounted() {
+  beforeMount() {
     this.$store.dispatch("getTvShowDetails", this.$route.params.id);
   },
   computed: {
